@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyLoad ✨ AI Workload Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+
+    <header class="glass-panel">
+        <div class="logo">StudyLoad ✨</div>
+        <div class="gamification">
+            <span class="streak">🔥 3 Day Streak</span>
+            <div class="level-badge">Lvl <span id="user-level">1</span></div>
+            <div class="xp-bar-container">
+                <div id="xp-fill" class="xp-fill"></div>
+            </div>
+            <span id="xp-text" class="xp-text">0 / 100 XP</span>
+        </div>
+    </header>
+
+    <main>
+        <div class="top-row">
+            <section class="pomodoro-card glass-panel">
+                <div class="mascot-container">
+                    <div id="pomodoro-mascot" class="mascot sleeping">🐰💤</div>
+                </div>
+                <div class="timer-state" id="timer-state-label">Ready to Focus</div>
+                
+                <div class="timer-display" id="timer-display">25:00</div>
+                
+                <div class="timer-settings">
+                    <label>Focus <input type="number" id="focus-input" value="25" min="1" max="120"> m</label>
+                    <label>Break <input type="number" id="break-input" value="5" min="1" max="30"> m</label>
+                </div>
+                
+                <div class="timer-controls">
+                    <button id="start-timer" class="primary-btn glow-btn">Start Cycle</button>
+                </div>
+            </section>
+
+            <section class="control-panel glass-panel">
+                <h2>AI Multi-Document Setup 📂</h2>
+                <p class="subtitle">Upload Datesheets, Syllabi, or paste text. The AI maps subjects automatically.</p>
+                <div class="input-tabs">
+                    <button class="tab-btn active">📁 Upload Files</button>
+                    <button class="tab-btn">📝 Paste Text</button>
+                </div>
+                <div class="input-group">
+                    <input type="file" id="file-upload" accept=".pdf,.doc,.docx,image/*" class="file-input" multiple>
+                </div>
+                <button id="parse-btn" class="primary-btn glow-btn">✨ Run AI Classification Engine</button>
+                
+                <div id="ai-logs" class="ai-logs hidden">
+                    <div id="log-1">⏳ Extracting Datesheet & mapping subjects...</div>
+                    <div id="log-2" class="hidden">🧠 Calculating effort & adding cute breaks...</div>
+                    <div id="log-3" class="hidden">✅ Magic complete! Timetable generated!</div>
+                </div>
+            </section>
+        </div>
+
+        <section class="dashboard glass-panel">
+            <div class="dashboard-header">
+                <h2>Master Timetable 🗓️</h2>
+                <div class="actions">
+                    <button id="end-day-btn" class="danger-btn glow-danger">⏩ End Day (Auto-Rebalance)</button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="burnoutChart"></canvas>
+            </div>
+            <div class="schedule-grid" id="schedule-grid"></div>
+        </section>
+        
+        <!-- NEW BIG FOOTER ADDED HERE -->
+        <footer class="glass-panel site-footer">
+            <div class="dev-names">
+                Designed & Developed with 💛 by <br>
+                <span>Aviral Shukla</span> • <span>Lucky Pandey</span> • <span>Rahul Raj Rai</span>
+            </div>
+            <div class="company-container">
+                <div class="company-name">ALURA Labs ✨</div>
+                <div class="company-meaning">( <b>A</b>viral + <b>LU</b>cky + <b>RA</b>hul )</div>
+            </div>
+        </footer>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
